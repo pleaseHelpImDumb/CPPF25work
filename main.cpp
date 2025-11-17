@@ -111,6 +111,8 @@ public:
         users.push_back(u);
         if(users.size() == 1) currentUserIndex = 0;
     }
+
+    // NEED to swap users to active user before adding/display books/etc.
     void setCurrentUser(int id){
         if(id-1 > users.size()){currentUserIndex=0;}
         else {
