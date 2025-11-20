@@ -1,3 +1,12 @@
+/*
+    Similar to reference code but added:
+        - Progress bar display in terminal
+        - 8KB buffer comparison rather than byte-by-byte
+        - command line flags for min/max file size, sorting (oldest, newest, shortest path), and help
+        - computing hash only for files with > 1 occurrence of that file size
+
+*/
+
 #include <iostream>
 #include <cstring>
 #include <filesystem>
@@ -318,9 +327,9 @@ public:
     }
 };
 
-// ----
+// ----------------------------
 // for printing file write time. converts the time
-
+// ----------------------------
 string getFileWriteTime(string file){
     auto ftime = fs::last_write_time(file);
     auto sctp = chrono::time_point_cast<chrono::system_clock::duration>(
